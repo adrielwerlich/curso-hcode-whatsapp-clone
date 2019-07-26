@@ -83,9 +83,7 @@ admin.initializeApp(functions.config().firebase);
 
 const db = admin.firestore();
 
-exports.saveShowLastMessage = functions.firestore
-    .document('chats/{chatId}/messages/{messageId}')
-    .onCreate((change, context) => {
+exports.saveShowLastMessage = functions.firestore.document('chats/{chatId}/messages/{messageId}').onCreate((change, context) => {
 
     const chatId = context.params.chatId;
     const messageId = context.params.messageId;
@@ -133,14 +131,15 @@ exports.saveShowLastMessage = functions.firestore
                 db.collection('users').doc(ut).collection('contacts').doc(uf).set({
                     lastMessage: messageDoc.content,
                     lastMessageTime: new Date()
-                }, { merge: true }).then(() => {
+                }, {
+                    merge: true 
+                }).then(() => {
 
                     console.log('[END]');
                     resolve(true);
                     return true;
 
                 }).catch(e => {
-                    reject('User last message not saved.')
                     throw new Error("User last message not saved.");
                 });
 
@@ -148,9 +147,8 @@ exports.saveShowLastMessage = functions.firestore
 
         });
 
-    })
-		.then(result => {return result})
-		.catch(err => {return err})
+    });
+
 });
 
 

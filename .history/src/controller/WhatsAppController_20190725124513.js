@@ -470,7 +470,7 @@ export class WhatsAppController {
 
         window.addEventListener('blur', e=> {
             this._active = false
-            // console.log(/'blur active? ' , this._active)
+            // console.log('blur active? ' , this._active)
         })
 
         this.el.inputSearchContacts.on('keyup', e => {

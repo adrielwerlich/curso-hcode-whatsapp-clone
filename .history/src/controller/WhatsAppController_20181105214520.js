@@ -465,12 +465,12 @@ export class WhatsAppController {
     initEvents() {
         window.addEventListener('focus', e=> {
             this._active = true
-            // console.log('focus active? ' , this._active)
+            console.log('focus active? ' , this._active)
         })
 
         window.addEventListener('blur', e=> {
             this._active = false
-            // console.log(/'blur active? ' , this._active)
+            console.log('blur active? ' , this._active)
         })
 
         this.el.inputSearchContacts.on('keyup', e => {

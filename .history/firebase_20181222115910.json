@@ -13,7 +13,6 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
-    "site":"whatsapp-clone-fire",
     "public": "dist",
     "ignore": [
       "firebase.json",
